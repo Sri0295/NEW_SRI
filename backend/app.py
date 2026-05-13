@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 from flask_cors import CORS
 import os
 import requests
@@ -311,7 +311,7 @@ def call_groq(code):
 # ==============================
 @app.route("/")
 def home():
-    return jsonify({"status": "running", "ai": "Groq"})
+    return render_template("index.html")
 
 
 @app.route("/analyze", methods=["POST"])
